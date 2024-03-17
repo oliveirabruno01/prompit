@@ -1,11 +1,12 @@
-﻿# prompit [![Common Changelog](https://common-changelog.org/badge.svg)](CHANGELOG.md) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/oliveirabruno01/prompit)
+﻿# prompit [![Common Changelog](https://common-changelog.org/badge.svg)](https://common-changelog.org) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/oliveirabruno01/prompit)
+
+#### [View CHANGELOG](CHANGELOG.md)
 
 `prompit` is a Python package and a Command Line Interface (CLI) tool designed to transform repositories, directories, and files into promptable texts for use with large language models. It's an invaluable tool for quickly understanding the structure of a new project and preparing it for interaction with AI models.
 
 ## Features
 
 - List all files in your project, considering .gitignore files.
-- Print the directory structure of your project.
 - Transform your repository into a promptable text.
 
 ## Installation
@@ -29,23 +30,19 @@ You can use `prompit` to list all non-ignored files in your project:
 prompit --list
 ```
 
-To print the directory structure:
-
-```shell
-prompit --structure
-```
-
 To print the current directory or repo as a prompt:
 
 ```shell
 prompit
 ```
 
-This will promptfy your repo ignoring files under your .gitignore file. You can also append an instruction message on the prompt:
+This will promptfy your repo ignoring files under your .gitignore files. You can also append an instruction message on the prompt:
 
 ```shell
-prompit --message "Your instruction here"
+prompit -m "Your instruction here"
 ```
+
+To see all available commands use ``prompit -h``
 
 ### As a Python module
 
@@ -74,11 +71,11 @@ Here are some advanced examples of how you can use `prompit`:
 prompit -i * -a single_file.py
 ```
 
-Note that the exact behavior may depend on your environment. `*` it will work on Windows but on unix-like systems it will probably fail. The exact reason can be explained by your favorite LLM.
+**Note that the exact behavior may depend on your environment. `*` it will work on Windows but on unix-like systems it will probably fail. The exact reason can be explained by your favorite LLM.**
 
 > In Unix-like systems, wildcard characters like `*` are expanded by the shell before being passed to commands, which can lead to unexpected behavior. However, in Windows Command Prompt or PowerShell, these characters are passed as-is to the command. To ensure consistent behavior across different systems, you can prevent the shell from expanding the wildcard by quoting it, like so: `prompit -i '*'`. This allows the command itself to handle the wildcard expansion.
 
-- To ignore a specific file and print the structure to the clipboard. This example uses Windows's clip.exe:
+- To ignore a specific file and print the structure to the clipboard. This example uses Windows's clip.exe to dump the output on clipboard:
 
 ```shell
 prompit -i src/languages.json -s | clip
@@ -90,7 +87,8 @@ prompit -i src/languages.json -s | clip
 prompit -i package-lock.json
 ```
 
-Note: `.gitignore` and `.git` specs are the only ones automatically ignored.
+_Note: `.gitignore` and `.git` specs are the only ones automatically ignored._
+
 
 ## Contributing
 
